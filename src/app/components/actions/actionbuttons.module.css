@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.primary {
+  background-color: #d4a762;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.primary:hover {
+  background-color: #c2974a;
+}
+
+.secondary {
+  background-color: transparent;
+  color: #5c3d2e;
+  border: 2px solid #d4a762;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.secondary:hover {
+  background-color: rgba(212, 167, 98, 0.15);
+}

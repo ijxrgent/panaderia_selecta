@@ -1,0 +1,116 @@
+/* app/page.module.css */
+.section {
+  padding: 80px 20px;
+  background-color: #fff;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: #5c3d2e;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #d4a762;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content p {
+  font-size: 1.125rem;
+  color: #666;
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+.ctaSection {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.ctaButton {
+  background-color: #d4a762;
+  color: white;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #d4a762;
+}
+
+.ctaButton:hover {
+  background-color: #c2974a;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 167, 98, 0.3);
+}
+
+.ctaButtonSecondary {
+  background-color: transparent;
+  color: #5c3d2e;
+  padding: 14px 32px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #5c3d2e;
+}
+
+.ctaButtonSecondary:hover {
+  background-color: #5c3d2e;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .ctaSection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ctaButton,
+  .ctaButtonSecondary {
+    width: 100%;
+    max-width: 300px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .content p {
+    font-size: 1rem;
+  }
+}

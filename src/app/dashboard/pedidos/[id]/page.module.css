@@ -1,0 +1,226 @@
+/* page.module.css */
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #2d3748;
+}
+
+.container h1 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  color: #1a202c;
+  border-bottom: 2px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.container h1::before {
+  content: '📦';
+  font-size: 1.4rem;
+}
+
+.container h2 {
+  font-size: 1.3rem;
+  margin: 2rem 0 1rem 0;
+  color: #2d3748;
+  padding-left: 0.5rem;
+  border-left: 3px solid #4299e1;
+}
+
+.container h3 {
+  font-size: 1.1rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border-radius: 8px;
+  color: #2d3748;
+  border: 1px solid #e2e8f0;
+  font-weight: 600;
+}
+
+/* Estados con colores semánticos */
+.estado {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.estado-pendiente {
+  background: #fed7d7;
+  color: #9b2c2c;
+}
+.estado-procesando {
+  background: #fed7d7;
+  color: #9b2c2c;
+}
+.estado-enviado {
+  background: #bee3f8;
+  color: #2c5282;
+}
+.estado-entregado {
+  background: #c6f6d5;
+  color: #276749;
+}
+.estado-cancelado {
+  background: #e2e8f0;
+  color: #4a5568;
+}
+
+/* Info cards */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.infoCard {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4299e1;
+}
+
+.infoCard p {
+  margin: 0.25rem 0;
+}
+
+/* Lista de productos */
+.productList {
+  margin: 1.5rem 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.productItem {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #edf2f7;
+  transition: background 0.2s;
+}
+
+.productItem:hover {
+  background: #f7fafc;
+}
+
+.productItem:last-child {
+  border-bottom: none;
+}
+
+.productQuantity {
+  background: #4299e1;
+  color: white;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.productName {
+  font-weight: 500;
+  color: #2d3748;
+}
+
+.productPrice {
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* Total destacado */
+.totalContainer {
+  text-align: right;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 2px dashed #e2e8f0;
+}
+
+.totalLabel {
+  display: block;
+  font-size: 0.9rem;
+  color: #718096;
+  margin-bottom: 0.5rem;
+}
+
+.totalAmount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+  background: linear-gradient(135deg, #c6f6d5, #b2f5ea);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productItem {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .productQuantity {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+
+  .totalAmount {
+    font-size: 1.3rem;
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+    margin: 0.5rem;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .container h2 {
+    font-size: 1.1rem;
+  }
+
+  .estado {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,96 @@
+/* Título principal - más grande, negrita, mayúsculas y color cálido típico de panadería */
+.title {
+  display: block;
+  width: 100%;
+  font-size: 2.5rem; /* mucho más grande */
+  font-weight: 800; /* peso extra (bold/extra-bold) */
+  text-transform: uppercase; /* MAYÚSCULAS */
+  letter-spacing: 1px; /* un toque de separación para que se vea elegante */
+  color: #8b4513; /* marrón chocolate / canela oscuro - muy clásico en panaderías */
+  margin-bottom: 1rem; /* menos margen para acercar la línea */
+  text-align: center;
+}
+
+/* Línea decorativa debajo del título (estilo <hr> sutil y cálido) */
+.title::after {
+  content: '';
+  display: block;
+  width: 120px; /* longitud moderada, centrada */
+  height: 3px; /* grosor visible pero elegante */
+  background-color: #d2691e; /* tono coral/marrón cálido - pan tostado */
+  margin: 0.8rem auto 2rem; /* centrado y espacio abajo */
+  border-radius: 2px; /* bordes suaves */
+}
+
+/* Grid - ajustamos un poco el gap para que las tarjetas más grandes respiren */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 en fila como acordamos antes */
+  gap: 2rem; /* más separación para tarjetas más grandes */
+  width: 100%;
+}
+
+/* Tarjetas - sin fondo, solo hover en imagen */
+.card {
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.2s ease; /* opcional: leve elevación al hover */
+}
+
+/* Imágenes más grandes */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px; /* ← más alto = imágenes más grandes y prominentes */
+  overflow: hidden;
+  transition: all 0.3s ease; /* para animación hover */
+}
+
+/* Imagen dentro - ajustada para verse bien más grande */
+.imageWrapper .image {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: contain !important;
+  transition: transform 0.4s ease; /* zoom suave al hover (opcional pero bonito) */
+}
+
+/* Zoom leve al hover */
+.card:hover .imageWrapper img {
+  transform: scale(1.04); /* zoom sutil, da vida sin exagerar */
+}
+
+/* Nombre de categoría - también más grande y con color cálido */
+.name {
+  display: block;
+  margin-top: 1rem; /* más espacio arriba */
+  font-size: 1.4rem; /* más grande */
+  font-weight: 700; /* negrita */
+  color: #5d4037; /* marrón café oscuro - combina perfecto con el título */
+  text-transform: uppercase; /* mayúsculas para consistencia */
+  letter-spacing: 0.5px;
+}
+
+/* Responsive - ajustamos alturas en móviles */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .imageWrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .imageWrapper {
+    height: 240px; /* en 1 columna se pueden permitir más altas */
+  }
+  .title {
+    font-size: 2.2rem;
+  }
+}

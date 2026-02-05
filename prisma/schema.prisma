@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Categoria {
+  id             Int        @id @default(autoincrement())
+  nombre         String
+  descripcion    String?
+  imagen         String?    // URL Cloudinary
+  imagenPublicId String?    // 👈 NUEVO
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  productos      Producto[]
+}
+
+model Producto {
+  id             Int           @id @default(autoincrement())
+  nombre          String
+  precio          Float
+  descripcion     String?
+  imagen          String?      // URL Cloudinary
+  imagenPublicId  String?      // 👈 NUEVO
+  ingredientes    String?
+  stock           Int           @default(20)
+  activo          Boolean       @default(true)
+  categoriaId     Int
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  itemsPedido     ItemsPedido[]
+  categoria       Categoria     @relation(fields: [categoriaId], references: [id])
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  nombre    String?
+  email     String   @unique
+  password  String
+  role      Role     @default(CLIENT)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  pedidos   Pedido[]
+}
+
+model Pedido {
+  id               Int           @id @default(autoincrement())
+  usuarioId        Int?
+  tipoEntrega      TipoEntrega
+  estado           EstadoPedido  @default(PENDIENTE)
+  total            Int
+  fechaProcesado   DateTime?
+  fechaEntregado   DateTime?
+  createdAt        DateTime      @default(now())
+  direccionEntrega String?
+  emailCliente     String?
+  nombreCliente    String?
+  telefonoCliente  String?
+  archivado        Boolean       @default(false)
+  fechaArchivado   DateTime?
+  items            ItemsPedido[]
+  usuario          User?         @relation(fields: [usuarioId], references: [id])
+
+  @@index([usuarioId])
+}
+
+model ItemsPedido {
+  id         Int      @id @default(autoincrement())
+  pedidoId   Int
+  productoId Int
+  cantidad   Int
+  precioUnit Float
+  pedido     Pedido   @relation(fields: [pedidoId], references: [id])
+  producto   Producto @relation(fields: [productoId], references: [id])
+}
+
+enum TipoEntrega {
+  DOMICILIO
+  RECOGER
+}
+
+enum EstadoPedido {
+  PENDIENTE
+  PROCESANDO
+  LISTO
+  ENTREGADO
+  CANCELADO
+}
+
+enum Role {
+  ADMIN
+  EMPLOYEE
+  CLIENT
+}

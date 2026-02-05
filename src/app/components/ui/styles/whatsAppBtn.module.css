@@ -1,0 +1,39 @@
+.button {
+  position: fixed;
+  bottom: 45px;
+  right: 64px;
+  width: 56px;
+  height: 56px;
+  background-color: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  font-size: 28px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .button {
+    width: 52px;
+    height: 52px;
+    bottom: 90px;
+    right: 16px;
+  }
+
+  .icon {
+    font-size: 26px;
+  }
+}

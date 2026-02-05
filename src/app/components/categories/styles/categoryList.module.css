@@ -1,0 +1,30 @@
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.item {
+  background-color: #fff;
+  border: 1px solid #f0e6d8;
+  border-radius: 8px;
+  padding: 12px 14px;
+  color: #5c3d2e;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.item:hover {
+  background-color: #fff7ed;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.empty {
+  color: #888;
+  font-style: italic;
+}

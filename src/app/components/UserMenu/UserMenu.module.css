@@ -1,0 +1,430 @@
+.userMenu {
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Botón principal */
+.userButton {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+  border: 1px solid #e8dfd1;
+  border-radius: 30px;
+  padding: 8px 16px 8px 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.userButton:hover {
+  background: linear-gradient(135deg, #f0e6d6 0%, #e8dfd1 100%);
+  border-color: #d4a762;
+  box-shadow: 0 4px 12px rgba(212, 167, 98, 0.15);
+  transform: translateY(-1px);
+}
+
+.userButton.active {
+  border-color: #d4a762;
+  box-shadow: 0 4px 12px rgba(212, 167, 98, 0.2);
+}
+
+/* Avatar */
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.guestIcon {
+  color: #d4a762;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* Texto del botón */
+.userText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.userName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8b4513;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.userRoleTag {
+  font-size: 11px;
+  font-weight: 500;
+  color: #666;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.loginText {
+  font-size: 14px;
+  font-weight: 600;
+  color: #8b4513;
+}
+
+/* Flecha */
+.caret {
+  color: #d4a762;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.caretUp {
+  transform: rotate(180deg);
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 320px, 90vw;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border: 1px solid #e8dfd1;
+  z-index: 1000;
+  animation: slideDown 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ==== USUARIO LOGEADO ==== */
+
+/* Encabezado usuario */
+.userHeader {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+}
+
+.headerAvatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.headerInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.headerName {
+  font-size: 16px;
+  font-weight: 700;
+  color: #8b4513;
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerEmail {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 6px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerRole {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Secciones */
+.menuSection {
+  padding: 15px 0;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0 20px 10px;
+  margin: 0;
+}
+
+/* Items del menú */
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.menuItem:hover {
+  background: #f9f5f0;
+  color: #d4a762;
+  padding-left: 25px;
+}
+
+.menuIcon {
+  color: #d4a762;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.itemContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.itemTitle {
+  font-weight: 600;
+  color: #333;
+}
+
+.menuItem:hover .itemTitle {
+  color: #d4a762;
+}
+
+.itemSubtitle {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.arrow {
+  color: #d4a762;
+  font-weight: bold;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.menuItem:hover .arrow {
+  opacity: 1;
+}
+
+/* Items especiales */
+.loginItem {
+  border-left: 3px solid #4caf50;
+}
+
+.registerItem {
+  border-left: 3px solid #2196f3;
+}
+
+/* Badge */
+.badge {
+  background: #ff6b6b;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-left: auto;
+}
+
+/* Acciones */
+.menuActions {
+  padding: 20px 20px 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100px;
+}
+
+.homeLink,
+.logoutButton,
+.quickLink {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.homeLink {
+  background: #f5f5f5;
+  color: #666;
+}
+
+.homeLink:hover {
+  background: #e8dfd1;
+  color: #8b4513;
+}
+
+.logoutButton {
+  background: #ffebee;
+  color: #d32f2f;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+.logoutButton:hover {
+  background: #ffcdd2;
+  color: #b71c1c;
+}
+
+.quickLink {
+  background: #f9f5f0;
+  color: #8b4513;
+}
+
+.quickLink:hover {
+  background: #f0e6d6;
+}
+
+/* ==== USUARIO NO LOGEADO ==== */
+
+.guestHeader {
+  text-align: center;
+  padding: 25px 20px;
+  background: linear-gradient(135deg, #f9f5f0 0%, #f0e6d6 100%);
+}
+
+.guestHeaderIcon {
+  font-size: 48px;
+  color: #d4a762;
+  margin-bottom: 10px;
+}
+
+.guestHeader h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #8b4513;
+  margin: 0 0 8px 0;
+}
+
+.guestHeader p {
+  font-size: 13px;
+  color: #666;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e8dfd1, transparent);
+  margin: 0;
+}
+
+/* Loading */
+.loadingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 52px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(212, 167, 98, 0.2);
+  border-top-color: #d4a762;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dropdown {
+  width: min(320px, 90vw); /* ✅ Se adapta al ancho de la pantalla */
+  max-width: 320px;
+  right: 0;
+}
+
+/* Añade para móvil: */
+@media (max-width: 640px) {
+  .dropdown {
+    width: calc(100vw - 32px); /* Ocupa casi toda la pantalla */
+    right: 50%;
+    transform: translateX(50%);
+    max-width: 300px;
+    max-height: 80vh;
+    border-radius: 12px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .userButton {
+    min-width: auto;
+    padding: 6px 12px 6px 8px;
+  }
+
+  .userName {
+    font-size: 13px;
+  }
+
+  .userRoleTag {
+    font-size: 10px;
+  }
+}

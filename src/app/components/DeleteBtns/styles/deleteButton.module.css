@@ -1,0 +1,11 @@
+.delete {
+  background: transparent;
+  border: none;
+  color: #e54848;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete:hover {
+  text-decoration: underline;
+}

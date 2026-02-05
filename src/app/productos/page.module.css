@@ -1,0 +1,295 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+  min-height: calc(100vh - 200px);
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  color: #5d4037;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 3px;
+  background: linear-gradient(to right, #ffb347, #ffcc33);
+  border-radius: 2px;
+}
+
+.status {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: #a67c52;
+  font-size: 1.25rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #fef9f3, #f5e6d3);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.08);
+  border: 1px solid #e6ccb2;
+}
+
+.error {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #c2410c;
+  font-size: 1.25rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #fff5f5, #fed7d7);
+  border-radius: 16px;
+  margin: 2rem auto;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.08);
+  border: 1px solid #fecaca;
+}
+
+.filters {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background: linear-gradient(to right, #fffaf0, #fef9f3);
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.06);
+  border: 1px solid #f0e6d6;
+  align-items: center;
+}
+
+/* CONTENEDORES PARA CONTROLAR TAMAÑOS */
+.searchContainer {
+  flex: 2; /* Más ancho que el dropdown */
+  min-width: 300px;
+}
+
+.dropdownContainer {
+  flex: 1; /* Menos ancho que el search */
+  min-width: 220px;
+  max-width: 280px;
+}
+
+.search {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 2px solid #e6ccb2;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: #5d4037;
+  background: white;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search:focus {
+  border-color: #d2691e;
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+.search::placeholder {
+  color: #a67c52;
+  opacity: 0.8;
+}
+
+/* Efectos para cuando no hay productos filtrados */
+.wrapper:has(.grid:empty)::after {
+  content: 'No se encontraron productos con esos filtros';
+  display: block;
+  text-align: center;
+  padding: 3rem;
+  color: #a67c52;
+  font-style: italic;
+  background: #fef9f3;
+  border-radius: 12px;
+  margin-top: 2rem;
+  border: 2px dashed #e6ccb2;
+}
+
+.searchContainer {
+  position: relative;
+  flex: 2;
+  min-width: 300px;
+}
+
+.search {
+  width: 100%;
+  padding: 0.9rem 3.5rem 0.9rem 1.2rem; /* Más espacio a la derecha */
+  border: 2px solid #e6ccb2;
+  border-radius: 50px;
+  font-size: 1rem;
+  color: #5d4037;
+  background: white;
+  transition: all 0.3s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.search:focus {
+  border-color: #d2691e;
+  box-shadow: 0 0 0 3px rgba(210, 105, 30, 0.1);
+}
+
+.searchButton {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #ffb347;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.searchButton:hover:not(:disabled) {
+  background: #ffa733;
+}
+
+.searchButton:disabled {
+  background: #e6ccb2;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.searchIcon {
+  width: 18px;
+  height: 18px;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .searchButton {
+    width: 36px;
+    height: 36px;
+    right: 6px;
+  }
+
+  .searchIcon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .filters {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .searchContainer,
+  .dropdownContainer {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  .status,
+  .error {
+    padding: 3rem 1.5rem;
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .search {
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .status,
+  .error {
+    padding: 2rem 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Animación sutil para loading */
+@keyframes subtlePulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.status {
+  animation: subtlePulse 2s ease-in-out infinite;
+}
+
+/* En tu archivo page.module.css */
+.searchStatus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff8e1; /* Amarillo muy suave, como masa de pan */
+  border-left: 4px solid #d4a574; /* Marrón cálido como pan horneado */
+  padding: 12px 16px;
+  margin: 20px 0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.searchStatus span {
+  color: #5d4037; /* Marrón chocolate */
+  font-weight: 500;
+}
+
+.searchStatus strong {
+  color: #bf360c; /* Naranja-marrón como canela */
+  font-weight: 600;
+}
+
+.clearButton {
+  background-color: #d4a574; /* Marrón suave como pan */
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.clearButton:hover {
+  background-color: #bf360c; /* Naranja-marrón al hover */
+}
+
+.clearButton:active {
+  transform: scale(0.98);
+}

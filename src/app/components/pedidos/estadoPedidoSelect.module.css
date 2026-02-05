@@ -1,0 +1,168 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  min-width: 200px;
+  max-width: 300px;
+  margin: 0.5rem 0;
+}
+
+.select {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #5c3d2e; /* Color marrón chocolate */
+  background-color: #fff9f0; /* Color crema suave */
+  border: 2px solid #d4a762; /* Dorado panadería */
+  border-radius: 8px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235c3d2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(92, 61, 46, 0.1);
+}
+
+.select:hover {
+  border-color: #b89146; /* Dorado más oscuro al hover */
+  background-color: #fff5e6;
+  box-shadow: 0 3px 6px rgba(92, 61, 46, 0.15);
+}
+
+.select:focus {
+  border-color: #a37b3a; /* Dorado intenso */
+  box-shadow: 0 0 0 3px rgba(212, 167, 98, 0.3);
+}
+
+.select:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  background-color: #f5f0e6;
+  color: #8b7355;
+}
+
+/* Estilos para las opciones */
+.select option {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #5c3d2e;
+  border-bottom: 1px solid #f0e6d6;
+}
+
+/* Estados específicos con colores diferentes */
+.select option[value='PENDIENTE'] {
+  background-color: #fff9f0;
+  color: #d4a762;
+  font-weight: 600;
+}
+
+.select option[value='EN_PROCESO'] {
+  background-color: #fff5e6;
+  color: #e6a84f;
+  font-weight: 600;
+}
+
+.select option[value='HORNEANDO'] {
+  background-color: #ffecc7;
+  color: #d18c21;
+  font-weight: 600;
+}
+
+.select option[value='LISTO'] {
+  background-color: #e8f5e9;
+  color: #4caf50;
+  font-weight: 600;
+}
+
+.select option[value='ENTREGADO'] {
+  background-color: #f3e5f5;
+  color: #9c27b0;
+  font-weight: 600;
+}
+
+.select option[value='CANCELADO'] {
+  background-color: #ffebee;
+  color: #f44336;
+  font-weight: 600;
+}
+
+.loading {
+  position: absolute;
+  right: 2.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  animation: panaderoCarga 1.5s infinite;
+}
+
+@keyframes panaderoCarga {
+  0% {
+    opacity: 0.3;
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) rotate(180deg);
+  }
+  100% {
+    opacity: 0.3;
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.error {
+  margin-top: 0.5rem;
+  padding: 0.75rem 1rem;
+  background-color: #ffebee;
+  color: #c62828;
+  border-left: 4px solid #ef9a9a;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  animation: aparecerError 0.3s ease-out;
+  box-shadow: 0 2px 4px rgba(198, 40, 40, 0.1);
+}
+
+@keyframes aparecerError {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilo para cuando hay error en el select */
+.select.errorState {
+  border-color: #ef9a9a;
+  background-color: #ffebee;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%; /* Cambiar a ancho completo */
+    min-width: 0; /* Eliminar min-width fijo */
+    max-width: 100%; /* Cambiar a 100% */
+    margin: 0.5rem 0;
+  }
+
+  .select {
+    width: 100%; /* Cambiar a 100% */
+    font-size: 0.9rem;
+    padding: 0.7rem 2.25rem 0.7rem 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .select {
+    font-size: 0.85rem;
+    padding: 0.65rem 2.25rem 0.65rem 0.85rem;
+  }
+}

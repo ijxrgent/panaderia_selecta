@@ -1,0 +1,454 @@
+/* src/app/productos/[id]/producto-detalle.module.css */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+/* Migas de pan - Colores panadería */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+}
+
+.breadcrumb a {
+  color: #8b4513; /* Marrón panadería */
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+  color: #d2691e; /* Marrón más claro */
+  text-decoration: underline;
+}
+
+.separator {
+  color: #d4a76a; /* Dorado claro */
+}
+
+.current {
+  color: #5d4037; /* Marrón oscuro */
+  font-weight: 600;
+}
+
+/* Grid principal ajustado */
+.productoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+
+/* Imagen - Más compacta */
+/* Esto hace que la imagen se escale para caber SIN espacios */
+.imagenContainer {
+  position: relative;
+  width: 100%;
+  background: transparent !important; /* ELIMINAR fondo */
+  border: none !important; /* ELIMINAR borde */
+  box-shadow: none !important; /* ELIMINAR sombra */
+  border-radius: 0 !important; /* ELIMINAR borde redondeado */
+  padding: 0 !important; /* ELIMINAR padding */
+  margin: 0 !important; /* ELIMINAR margin */
+}
+
+/* Hacer que el span de Next.js ocupe solo lo que necesita */
+.imagenContainer > span {
+  position: relative !important;
+  width: auto !important; /* Ancho automático */
+  height: auto !important; /* Alto automático */
+  display: inline-block !important; /* Se ajusta al contenido */
+  line-height: 0 !important; /* Eliminar espacio de línea */
+}
+
+/* Hacer que la imagen sea el contenedor visual */
+.imagenContainer img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 100% !important;
+  max-height: 500px !important; /* Limitar altura máxima */
+  display: block !important;
+  margin: 0 auto !important; /* Centrar */
+  border-radius: 12px !important; /* Poner el borde en LA IMAGEN */
+  box-shadow: 0 3px 12px rgba(139, 69, 19, 0.1) !important; /* Sombra en LA IMAGEN */
+  border: 1px solid #f5e6d3 !important; /* Borde en LA IMAGEN */
+  background: #fff8f0 !important; /* Fondo en LA IMAGEN */
+}
+
+.imagenPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #fff8f0;
+}
+
+.placeholderIcon {
+  font-size: 48px;
+  color: #d4a76a;
+  opacity: 0.7;
+}
+
+/* Información */
+.infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.categoriaBadge {
+  display: inline-block;
+  background: #fff3e0; /* Beige dorado */
+  color: #8b4513; /* Marrón */
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  border: 1px solid #ffe0b2;
+}
+
+.titulo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #5d4037; /* Marrón oscuro */
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.precioStock {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #f5e6d3;
+}
+
+.precio {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #d2691e; /* Marrón anaranjado */
+}
+
+.stock {
+  padding: 6px 16px;
+  border-radius: 16px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.disponible {
+  background: #e8f5e9; /* Verde muy claro */
+  color: #2e7d32; /* Verde oscuro */
+}
+
+.agotado {
+  background: #ffebee; /* Rojo muy claro */
+  color: #c62828; /* Rojo oscuro */
+}
+
+.stockCantidad {
+  font-weight: 400;
+  opacity: 0.7;
+  font-size: 0.85rem;
+}
+
+/* Descripción */
+.descripcionContainer {
+  padding: 16px 0;
+  border-top: 1px solid #f5e6d3;
+  border-bottom: 1px solid #f5e6d3;
+}
+
+.descripcionTitulo {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #5d4037;
+  margin-bottom: 10px;
+}
+
+.descripcion {
+  color: #6d4c41; /* Marrón medio */
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+/* Contenedor del carrito */
+.carritoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px;
+  background: #fff8f0;
+  border-radius: 10px;
+  border: 1px solid #f5e6d3;
+}
+
+.cantidadWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cantidadLabel {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #5d4037;
+}
+
+.controlesCantidad {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #d4a76a;
+  overflow: hidden;
+}
+
+.botonCantidad {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: none;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #8b4513;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.botonCantidad:hover:not(:disabled) {
+  background: #fff3e0;
+}
+
+.botonCantidad:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.cantidadDisplay {
+  width: 40px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #5d4037;
+  border-left: 1px solid #f5e6d3;
+  border-right: 1px solid #f5e6d3;
+}
+
+/* Subtotal */
+.subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid #f5e6d3;
+  border-bottom: 1px solid #f5e6d3;
+}
+
+.subtotalLabel {
+  font-size: 0.95rem;
+  color: #6d4c41;
+  font-weight: 600;
+}
+
+.subtotalValor {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d2691e;
+}
+
+/* Botón agregar */
+.botonAgregar {
+  background: #d2691e; /* Marrón anaranjado */
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.botonAgregar:hover:not(:disabled) {
+  background: #8b4513; /* Marrón más oscuro */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(139, 69, 19, 0.2);
+}
+
+.botonAgregar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Estado agotado */
+.agotadoContainer {
+  padding: 20px;
+  background: #fff3e0;
+  border-radius: 10px;
+  border: 1px solid #ffcc80;
+}
+
+.agotadoTexto {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ef6c00; /* Naranja oscuro */
+  margin-bottom: 6px;
+}
+
+.agotadoDescripcion {
+  color: #8b4513;
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* Detalles adicionales */
+.detallesAdicionales {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.detalleItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  background: #fff8f0;
+  border-radius: 8px;
+  border: 1px solid #f5e6d3;
+}
+
+.detalleLabel {
+  font-size: 0.8125rem;
+  color: #8b4513;
+  font-weight: 500;
+}
+
+.detalleValor {
+  font-size: 0.9375rem;
+  color: #5d4037;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .productoGrid {
+    gap: 28px;
+  }
+
+  .titulo {
+    font-size: 1.75rem;
+  }
+
+  .precio {
+    font-size: 1.75rem;
+  }
+
+  .imagenContainer {
+    max-height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .productoGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .imagenContainer {
+    height: 350px;
+  }
+
+  .carritoContainer {
+    padding: 16px;
+  }
+
+  .cantidadWrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .subtotal {
+    padding: 10px 0;
+  }
+
+  .subtotalValor {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 16px 12px;
+  }
+
+  .breadcrumb {
+    font-size: 0.85rem;
+  }
+
+  .titulo {
+    font-size: 1.5rem;
+  }
+
+  .precio {
+    font-size: 1.5rem;
+  }
+
+  .precioStock {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .detallesAdicionales {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .carritoContainer {
+    padding: 14px;
+  }
+
+  .imagenContainer {
+    height: 300px;
+  }
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1400px) {
+  .imagenContainer {
+    max-height: 550px;
+  }
+}

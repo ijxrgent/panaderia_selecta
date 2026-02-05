@@ -1,0 +1,411 @@
+/* Header.module.css */
+.header {
+  background-color: #f9f5f0;
+  border-bottom: 3px solid #d4a762;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: 85px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  position: relative;
+}
+
+/* LOGO */
+.logoSection {
+  flex: 0 0 auto;
+  z-index: 1001;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  text-decoration: none;
+}
+
+.logoImage {
+  width: auto !important;
+  height: 70px !important;
+  object-fit: contain;
+}
+
+/* NAVEGACIÓN DESKTOP */
+.navDesktop {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.navItem {
+  display: flex;
+  align-items: center;
+}
+
+.navLink {
+  text-decoration: none;
+  color: #5c3d2e;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #d4a762;
+  background-color: rgba(212, 167, 98, 0.1);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #d4a762;
+  transition: width 0.3s ease;
+}
+
+.navLink:hover::after {
+  width: 70%;
+}
+
+/* SECCIÓN DERECHA DESKTOP */
+.rightSectionDesktop {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  z-index: 1001;
+}
+
+.cartIcon {
+  color: #5c3d2e;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cartIcon:hover {
+  color: #d4a762;
+  background-color: rgba(212, 167, 98, 0.1);
+}
+
+.cartWrapper {
+  position: relative;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  background-color: #ff2554;
+  color: #fff;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: none;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* HAMBURGUESA - MOBILE */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1002;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: #5c3d2e;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburgerActive span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburgerActive span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburgerActive span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* MENÚ MOBILE */
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 85px;
+  left: 0;
+  width: 100%;
+  background-color: #f9f5f0;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.mobileMenuActive {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.navMobile {
+  width: 100%;
+}
+
+.navListMobile {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.navItemMobile {
+  width: 100%;
+}
+
+.navLinkMobile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #5c3d2e;
+  font-weight: 500;
+  padding: 12px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.navLinkMobile:hover {
+  background-color: rgba(212, 167, 98, 0.15);
+  color: #d4a762;
+  padding-left: 20px;
+}
+
+.loginLinkMobile {
+  margin-top: 20px;
+  background-color: #d4a762;
+  color: white !important;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.loginLinkMobile:hover {
+  background-color: #c2974a;
+  color: white !important;
+}
+
+.cartSection {
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+}
+
+.logoutMobile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 6px;
+  background: #ffebee;
+  color: #d32f2f;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logoutMobile:hover {
+  background: #ffcdd2;
+  color: #b71c1c;
+  padding-left: 20px;
+}
+
+/* Visible solo en mobile */
+.misPedidosMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .misPedidosMobile {
+    display: flex;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .navList {
+    gap: 20px;
+  }
+
+  .logoImage {
+    height: 65px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 75px;
+  }
+
+  .logoImage {
+    height: 55px !important;
+  }
+
+  .navDesktop,
+  .rightSectionDesktop {
+    display: none !important;
+  }
+
+  .cartSection {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: block;
+  }
+
+  .mobileMenuActive {
+    display: block;
+  }
+
+  /* Estilos para el icono del carrito en mobile - CENTRO */
+  .cartSectionMobile {
+    display: flex !important;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+  }
+
+  .cartIconMobile {
+    color: #5c3d2e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cartIconMobile:hover {
+    color: #d4a762;
+    background-color: rgba(212, 167, 98, 0.1);
+  }
+
+  .cartWrapperMobile {
+    position: relative;
+  }
+
+  .cartBadgeMobile {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background-color: #ff2554;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    box-shadow: 0 0 0 2px #fff;
+  }
+}
+
+.mobileUserMenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 480px) {
+  .logoImage {
+    height: 50px !important;
+  }
+
+  .header {
+    height: 70px;
+  }
+
+  .mobileMenu {
+    top: 70px;
+  }
+}
+
+/* Estilos para ocultar el carrito de mobile en desktop */
+@media (min-width: 769px) {
+  .cartSectionMobile {
+    display: none !important;
+  }
+}

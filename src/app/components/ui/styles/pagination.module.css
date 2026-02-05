@@ -1,0 +1,51 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 40px;
+}
+
+.page,
+.arrow {
+  min-width: 36px;
+  height: 36px;
+  border: 1px solid #e5e5e5;
+  background: white;
+  color: #5c3d2e;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.page:hover,
+.arrow:hover {
+  background-color: #f9f5f0;
+}
+
+.active {
+  background-color: #d4a762;
+  border-color: #d4a762;
+  color: white;
+  font-weight: 600;
+}
+
+.arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* O si prefieres mantener pointer-events pero estilizar los botones: */
+.pagination.disabled button {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pagination.disabled button:not(:disabled):hover {
+  background-color: inherit;
+  color: inherit;
+}
