@@ -1,5 +1,6 @@
+// src/app/api/upload/categorias/route.ts
 import { NextResponse } from 'next/server'
-import cloudinary from '@/lib/cloudinary'
+import { cloudinary } from '@/lib/cloudinary' // Ahora sí existe
 import type { UploadApiResponse, UploadApiErrorResponse } from 'cloudinary'
 
 export async function POST(req: Request) {
